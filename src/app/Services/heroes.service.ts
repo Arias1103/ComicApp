@@ -59,12 +59,12 @@ export class HeroesService {
     constructor() { 
     console.log("Services working ");
 }
-    getHeroes() {
+    getHeroes(): Hero[] {
         return this.heroes;
     }
     
-    getHero( idx: string ) {
-         return this.heroes[ idx ];
+    getHero(idx: string){
+       return this.heroes[idx];
     }
 }
 
