@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { APP_ROUTING } from './app.routes'
 
 //Services
+import{HeroesService} from './services/heroes.service'
 
 // components
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +16,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
+import { HeroComponent } from './components/hero/hero.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { HeroesComponent } from './components/heroes/heroes.component';
     NavbarComponent,
     HomeComponent,
     AboutComponent,
-    HeroesComponent
+    HeroesComponent,
+    HeroComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,9 @@ import { HeroesComponent } from './components/heroes/heroes.component';
     HttpClientModule,
     APP_ROUTING
   ],
-  providers: [],
+  providers: [
+    HeroesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
