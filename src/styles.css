@@ -6,6 +6,18 @@ body{
     margin-top: 15px;
 }
 
+.team-dc {
+  width: 200px; 
+  height: 200px;
+  border-radius: 5%;
+}
+
+.team-marvel {
+  width: 250px;
+  height: 150px;
+  border-radius: 5%;
+}
+
 /* Animations */
 
 .animated {

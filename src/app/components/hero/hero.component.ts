@@ -1,26 +1,24 @@
-import { Component} from '@angular/core';
-import { ActivatedRoute, Router} from '@angular/router'
+import { Component } from '@angular/core';
+import {ActivatedRoute} from '@angular/router'
 
-import {HeroesService} from '../../Services/heroes.service'
-
+import {HeroesService} from '../../services/heroes.service'
 @Component({
   selector: 'app-hero',
   templateUrl: './hero.component.html'
 })
 export class HeroComponent {
 
-  hero:any = {};
+  hero: any={};
 
-  constructor (private activatedRoute: ActivatedRoute
-                        
-             ) { 
-
-    this.activatedRoute.params.subscribe(params => {
-      console.log(params ['id']);
-     
+  constructor( private _activatedRoute: ActivatedRoute,
+              private _heroesService: HeroesService
+              ) {
+    this._activatedRoute.params.subscribe(params => {
+      console.log(params);
+      this.hero = this._heroesService.getHero(params['id']);
     })
-  }
+   }
 
-  
+
 
 }
