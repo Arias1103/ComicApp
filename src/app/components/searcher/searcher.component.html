@@ -1,1 +1,16 @@
-<p>searcher works!</p>
+<h1> Searching <small>{{term}}</small></h1>
+<hr> 
+
+ <div class="row animated fadeIn fast" *ngIf="heroes.length == 0">
+  <div class="col-md-12">
+     <div class="alert alert-info" role="alert">
+        {{term}} couldn't be found
+     </div>
+  </div>
+ </div>
+
+<div class="card-columns">
+
+   <app-card-hero [hero]="hero" [index]="i" *ngFor="let hero of heroes; let i= index"> </app-card-hero>
+   
+</div>
