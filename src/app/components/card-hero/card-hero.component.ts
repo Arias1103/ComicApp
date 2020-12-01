@@ -1,26 +1,23 @@
-import { Component, OnInit, Input} from '@angular/core';
-import {Router} from '@angular/router';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-card-hero',
   templateUrl: './card-hero.component.html',
-  styles: [
-  ]
+  styles: [],
 })
 export class CardHeroComponent implements OnInit {
+  @Input() hero: any = {};
+  @Input() index: number;
 
-@Input() hero: any = {};
-@Input() index: number;
+  @Output() heroSelected: EventEmitter<number>;
 
-
-  constructor(private router: Router) { 
-    
+  constructor(private router: Router) {
+    this.heroSelected = new EventEmitter();
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  showHero(){
-    this.router.navigate(['/hero', this.index]);
+  showHero() {
+    this.heroSelected.emit(this.index);
   }
-
 }

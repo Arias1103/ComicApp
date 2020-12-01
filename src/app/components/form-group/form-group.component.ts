@@ -15,14 +15,15 @@ export class FormGroupComponent implements OnInit {
     schedule: ['', Validators.required],
     comments: [''],
   });
+
   assignatures = ['Math', 'History', 'Chemistry', 'English', 'POO'];
 
   schedules = [
-    '12:00 - 13:55',
-    '14:00 - 15:55',
-    '16:00 - 17:55',
-    '18:00 - 19:55',
-    '20:00 - 21:55',
+    '12:00 p.m. - 13:55 p.m.',
+    '14:00 p.m. - 15:55 p.m.',
+    '16:00 p.m. - 17:55 p.m.',
+    '18:00 p.m. - 19:55 p.m.',
+    '20:00 p.m. - 21:55 p.m.',
   ];
 
   getudgForm() {}
