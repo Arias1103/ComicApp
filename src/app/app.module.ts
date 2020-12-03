@@ -23,6 +23,7 @@ import { CardHeroComponent } from './components/card-hero/card-hero.component';
 import { FormGroupComponent } from './components/form-group/form-group.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -51,6 +52,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatInputModule,
     MatSelectModule,
     MatFormFieldModule,
+    MatIconModule,
     APP_ROUTING,
   ],
   providers: [HeroesService],

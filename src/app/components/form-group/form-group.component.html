@@ -48,7 +48,11 @@
 <hr>
 <h2> Students List </h2>
 <hr>
-
+<div class="example-button-container">
+  <button (click)="removeColumn()" mat-mini-fab disabled aria-label="Example icon button with a home icon">
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>
 <mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <ng-container #table matColumnDef="name">

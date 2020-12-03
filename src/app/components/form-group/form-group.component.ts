@@ -38,7 +38,16 @@ export class FormGroupComponent implements OnInit {
   });
   @Input()
   displayedColumns: string[] = ['name', 'assignature', 'schedule', 'code'];
+  columnsToDisplay: string[] = this.displayedColumns.slice();
   dataSource = DATA_STUDENT;
+  data: Student[] = DATA_STUDENT;
+
+  removeColumn() {
+    this.updateView();
+    if (this.columnsToDisplay.length) {
+      this.columnsToDisplay.pop();
+    }
+  }
 
   assignatures = ['Math', 'History', 'Chemistry', 'English', 'POO'];
 
