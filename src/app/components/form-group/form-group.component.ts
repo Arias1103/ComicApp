@@ -1,5 +1,24 @@
-import { Component, OnInit, NgModule } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  NgModule,
+  Output,
+  EventEmitter,
+  ViewChild,
+  Input,
+} from '@angular/core';
 import { FormBuilder, FormArray, FormGroup, Validators } from '@angular/forms';
+import { MatTable } from '@angular/material/table';
+
+export interface Student {
+  name: string;
+  email: string;
+  assignature: string;
+  schedule: string;
+  codeId: number;
+}
+
+const DATA_STUDENT: Student[] = [];
 
 @Component({
   selector: 'app-form-group',
@@ -7,14 +26,19 @@ import { FormBuilder, FormArray, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./form-group.component.css'],
 })
 export class FormGroupComponent implements OnInit {
+  student: Student;
+  @ViewChild('table') table: MatTable<any>;
   udgForm = this.fb.group({
     id: [0],
     name: ['', Validators.required],
     email: ['', Validators.required],
     assignature: ['', Validators.required],
     schedule: ['', Validators.required],
-    comments: [''],
+    codeId: [, Validators.required],
   });
+  @Input()
+  displayedColumns: string[] = ['name', 'assignature', 'schedule', 'code'];
+  dataSource = DATA_STUDENT;
 
   assignatures = ['Math', 'History', 'Chemistry', 'English', 'POO'];
 
@@ -26,18 +50,18 @@ export class FormGroupComponent implements OnInit {
     '20:00 p.m. - 21:55 p.m.',
   ];
 
-  getudgForm() {}
-  studentsList = [];
-
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {}
 
   onSubmit() {
     this.udgForm.setValue;
-    const signedUp = this.studentsList.push(this.udgForm.value);
-    console.log(this.udgForm.value);
-    console.log(signedUp);
-    console.log(this.studentsList);
+    this.dataSource.push(this.udgForm.value);
+    console.log(this.dataSource);
+    this.updateView();
+  }
+
+  updateView() {
+    this.table.renderRows();
   }
 }

@@ -37,8 +37,10 @@
       </div>
     </div>
     <div class="form-group">
-      <label>Comments about professors</label>
-      <textarea class="form-control" formControlName="comments" rows="6"></textarea>
+      <mat-form-field class="col-6 col-md-6 text-center mt-5">
+        <mat-label>Student's Code</mat-label>
+        <input matInput type="number" formControlName="codeId">
+      </mat-form-field>
     </div>
     <button type="submit" class="btn btn-primary" [disabled]="!udgForm.valid"> Sign in </button>
   </div>
@@ -46,8 +48,31 @@
 <hr>
 <h2> Students List </h2>
 <hr>
-<li>
-  <ul [value]="student" *ngFor="let student of studentsList">
-    {{student.name}}
-  </ul>
-</li>
+
+<mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container #table matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let student"> {{student.name}} </mat-cell>
+  </ng-container>
+
+
+  <ng-container #table matColumnDef="assignature">
+    <mat-header-cell *matHeaderCellDef> Assignature </mat-header-cell>
+    <mat-cell *matCellDef="let student"> {{student.assignature}} </mat-cell>
+  </ng-container>
+
+  <ng-container #table matColumnDef="schedule">
+    <mat-header-cell *matHeaderCellDef> Schedule </mat-header-cell>
+    <mat-cell *matCellDef="let student"> {{student.schedule}} </mat-cell>
+  </ng-container>
+
+
+  <ng-container #table matColumnDef="code">
+    <mat-header-cell *matHeaderCellDef> Code </mat-header-cell>
+    <mat-cell *matCellDef="let student"> {{student.codeId}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
